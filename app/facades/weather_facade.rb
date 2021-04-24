@@ -15,7 +15,7 @@ class WeatherFacade
   end
 
   def self.objectify_current_forecast(current_forecast)
-    OpenStruct.new({  datetime:      clean_time(current_forecast[:dt]),
+    {                  datetime:      clean_time(current_forecast[:dt]),
                        sunrise:      clean_time(current_forecast[:sunrise]),
                        sunset:       clean_time(current_forecast[:sunset]),
                        temperature:  current_forecast[:temp],
@@ -25,7 +25,7 @@ class WeatherFacade
                        visibility:   current_forecast[:visibility],
                        conditions:   current_forecast[:weather][0][:description],
                        icon:         current_forecast[:weather][0][:icon]
-                  })
+                  }
   end
 
   def self.objectify_daily_forecast(daily_forecast)
@@ -41,24 +41,24 @@ class WeatherFacade
   end
 
   def self.daily_object(daily)
-    OpenStruct.new({ date:       clean_day(daily[:dt]),
+                { date:       clean_day(daily[:dt]),
                      sunrise:    clean_time(daily[:sunrise]),
                      sunset:     clean_time(daily[:sunset]),
                      max_temp:   daily[:temp][:max],
                      min_temp:   daily[:temp][:min],
                      conditions: daily[:weather][0][:description],
                      icon:       daily[:weather][0][:icon]
-                  })
+                  }
 
   end
 
 
   def self.hour_object(hour)
-    OpenStruct.new({ time:        clean_hour(hour[:dt]),
+                  { time:        clean_hour(hour[:dt]),
                      temperature: hour[:temp],
                      conditions:  hour[:weather][0][:description],
                      icon:        hour[:weather][0][:icon]
-                  })
+                  }
   end
 
   def self.clean_time(time)

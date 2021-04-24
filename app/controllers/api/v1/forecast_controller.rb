@@ -4,6 +4,7 @@ module Api
 
       def show
         weather = WeatherFacade.get_forecast(params[:location])
+        render json: ForecastSerializer.new(weather)
       end
     end
   end
