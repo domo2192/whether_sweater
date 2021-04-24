@@ -34,6 +34,11 @@ class WeatherFacade
     end.first(5)
   end
 
+  def self.objectify_hourly_forecast(hourly_forecast)
+    hourly_forecast.map do |hour|
+      hour_object(hour)
+    end.first(8)
+  end
 
   def self.daily_object(daily)
     OpenStruct.new({ date:       clean_day(daily[:dt]),
@@ -47,11 +52,6 @@ class WeatherFacade
 
   end
 
-  def self.objectify_hourly_forecast(hourly_forecast)
-    hourly_forecast.map do |hour|
-      hour_object(hour)
-    end.first(8)
-  end
 
   def self.hour_object(hour)
     OpenStruct.new({ time:        clean_hour(hour[:dt]),
