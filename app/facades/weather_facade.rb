@@ -36,7 +36,7 @@ class WeatherFacade
 
 
   def self.daily_object(daily)
-    OpenStruct.new({ datetime:   clean_time(daily[:dt]),
+    OpenStruct.new({ date:       clean_day(daily[:dt]),
                      sunrise:    clean_time(daily[:sunrise]),
                      sunset:     clean_time(daily[:sunset]),
                      max_temp:   daily[:temp][:max],
@@ -67,5 +67,9 @@ class WeatherFacade
 
   def self.clean_hour(hour)
     Time.at(hour).strftime("%T")
+  end
+
+  def self.clean_day(daily)
+    Time.at(daily).strftime("%F")
   end
 end
