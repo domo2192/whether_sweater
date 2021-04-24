@@ -71,6 +71,17 @@ RSpec.describe 'Forecast Search'do
       VCR.use_cassette("no_city_sad") do
         get '/api/v1/forecast'
         expect(response.status).to eq(400)
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body).to eq(message: "Your parameters are Invalid")
+      end
+    end
+
+    it 'renders 400 if location is present but empty' do
+      VCR.use_cassette("location_empty_sad") do
+        get '/api/v1/forecast?location='
+        expect(response.status).to eq(400)
+        body = JSON.parse(response.body, symbolize_names: true)
+        expect(body).to eq(message: "Your parameters are Invalid")
       end
     end
   end

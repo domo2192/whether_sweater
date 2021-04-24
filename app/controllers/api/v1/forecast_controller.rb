@@ -3,7 +3,7 @@ module Api
     class ForecastController < ApplicationController
 
       def show
-        if params[:location]
+        if params[:location] && !params[:location].empty?
         weather = WeatherFacade.get_forecast(params[:location])
         render json: ForecastSerializer.new(weather)
         else
