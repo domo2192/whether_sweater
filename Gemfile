@@ -32,6 +32,7 @@ group :development, :test do
   gem 'figaro'
   gem 'hirb'
   gem 'json'
+  gem 'faraday'
 end
 
 group :development do
