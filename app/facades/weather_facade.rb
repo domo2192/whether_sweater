@@ -55,7 +55,7 @@ class WeatherFacade
 
   def self.hour_object(hour)
     OpenStruct.new({ time:        clean_hour(hour[:dt]),
-                     temperature: hour[:temperateure],
+                     temperature: hour[:temp],
                      conditions:  hour[:weather][0][:description],
                      icon:        hour[:weather][0][:icon]
                   })
