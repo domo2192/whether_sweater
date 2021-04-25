@@ -5,7 +5,7 @@ module Api
       def create
         params = JSON.parse(request.raw_post)
         user = User.create!(params)
-        render json: UsersSerializer.new(user), status: :created 
+        render json: UsersSerializer.new(user), status: :created
       end
     end
   end

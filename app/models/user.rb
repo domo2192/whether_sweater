@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, confirmation: true
+  validates_confirmation_of :password
   validates :password, presence: { require: true }
   before_save { email.try(:downcase!) }
   before_save :set_api_key
