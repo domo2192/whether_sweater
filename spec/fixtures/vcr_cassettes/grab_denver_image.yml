@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.pexels.com/v1/search?per_page=1&query=denver,co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - 563492ad6f917000010000015655a8e3d1664f73bb73a5353bbbd3b5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 25 Apr 2021 13:21:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '447'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cf_bm=49be5f7f6fdd9b363e50e008fb6221bc68f257e5-1619356910-1800-AcD3EY8G6Ng0s/Ep/tW4M9Pciwa6e3w6luwooyH7ZXzITnQrVmVLVEfK+OUOrvVSoLBrkMiwXiAMVLa/wsjH0Wc=;
+        path=/; expires=Sun, 25-Apr-21 13:51:50 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cf_bm=5ced799349eb144ff1d43ce4e4b3f02eff269314-1619308443-1800-AZr+XCWzJPs35PTdEFhg70LX4fMze/8XNYIXyvlj1/5rcjMuf6EIRmhKc9OvMJC2BXy1gXprCRh95Dnjr7tJfW8=;
+        path=/; expires=Sun, 25-Apr-21 00:24:03 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfduid=d561dd27634aa7c220a077c0cf1fb20311619308443; expires=Mon, 24-May-21
+        23:54:03 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=dce9ec2051152c3b3e43a40588ee35a041619356910; expires=Tue, 25-May-21
+        13:21:50 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '09aaca9ce40000f790b7abd000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Vary:
+      - Origin
+      X-Frame-Options:
+      - ALLOWALL
+      X-Ratelimit-Limit:
+      - '20000'
+      X-Ratelimit-Remaining:
+      - '19983'
+      X-Ratelimit-Reset:
+      - '1621827429'
+      X-Request-Id:
+      - 75b0962c-e75e-457c-8b43-ff541652e3d5
+      X-Runtime:
+      - '0.058037'
+      X-Server:
+      - master
+      X-Tyk-Cached-Response:
+      - '1'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 6457e074acf1f790-DEN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"per_page":1,"photos":[{"id":7429467,"width":6000,"height":4000,"url":"https://www.pexels.com/photo/group-of-people-sitting-in-front-of-a-table-7429467/","photographer":"Ron
+        Lach","photographer_url":"https://www.pexels.com/@ron-lach","photographer_id":22992178,"avg_color":"#9D9A93","src":{"original":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg","large2x":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=650\u0026w=940","large":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940","medium":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=350","small":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=130","portrait":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=1200\u0026w=800","landscape":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=627\u0026w=1200","tiny":"https://images.pexels.com/photos/7429467/pexels-photo-7429467.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=1\u0026fit=crop\u0026h=200\u0026w=280"},"liked":false}],"total_results":1445,"next_page":"https://api.pexels.com/v1/search/?page=2\u0026per_page=1\u0026query=denver%2Cco"}'
+  recorded_at: Sun, 25 Apr 2021 13:21:50 GMT
+recorded_with: VCR 6.0.0

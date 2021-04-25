@@ -4,7 +4,7 @@ module Api
 
       def show
         background = BackgroundFacade.get_background(params[:location])
-        require "pry"; binding.pry
+        render json: BackgroundSerializer.new(background)
       end
     end
   end
