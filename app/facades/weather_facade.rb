@@ -15,7 +15,7 @@ class WeatherFacade
   end
 
   def self.objectify_current_forecast(current_forecast)
-    {                  datetime:      clean_time(current_forecast[:dt]),
+    {                  datetime:     clean_time(current_forecast[:dt]),
                        sunrise:      clean_time(current_forecast[:sunrise]),
                        sunset:       clean_time(current_forecast[:sunset]),
                        temperature:  current_forecast[:temp],
