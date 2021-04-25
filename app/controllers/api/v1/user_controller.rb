@@ -3,12 +3,9 @@ module Api
     class UserController < ApplicationController
 
       def create
-        User.create(user_params)
-      end
-
-      private
-      def user_params
-        params.require(:email, :password, :password_confirmation)
+        params = JSON.parse(request.raw_post)
+        user = User.create!(params)
+        render json: UsersSerializer.new(user), status: :created 
       end
     end
   end
