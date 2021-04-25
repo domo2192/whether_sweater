@@ -22,4 +22,13 @@ RSpec.describe 'Find background image'do
       end
     end
   end
+
+  describe 'sad path' do
+    it 'returns a error if no location is passed in' do
+      VCR.use_cassette('bad_location') do
+        get '/api/v1/backgrounds'
+        expect(response.status).to eq(400)
+      end
+    end
+  end
 end
