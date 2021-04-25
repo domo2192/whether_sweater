@@ -3,7 +3,6 @@ class BackgroundFacade
   def self.get_background(location)
     background = PixelService.get_image(location)
     objectify_background(background, location)
-    require "pry"; binding.pry
   end
 
   def self.objectify_background(background, location)
