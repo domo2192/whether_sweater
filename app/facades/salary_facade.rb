@@ -25,8 +25,7 @@ class SalaryFacade
     tech_jobs = salaries[:salaries].find_all do |job|
       job[:job][:title] == "Data Analyst" ||   job[:job][:title] == "Data Scientist" ||
       job[:job][:title] == "Mobile Developer" || job[:job][:title] == "QA Engineer" ||
-      job[:job][:title] == "Software Engineer" || job[:job][:titile] == "Systems Administrator" ||
-      job[:job][:title] == "Web Developer"
+      job[:job][:title] == "Software Engineer" || job[:job][:title] == "Systems Administrator" || job[:job][:title] == "Web Developer"
 
     end
     tech_jobs.map do |job|
