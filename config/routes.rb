@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'backgrounds', to: 'background#show'
       post 'users', to: 'user#create'
       post 'sessions', to: 'session#create'
+      get 'salaries', to: 'salary#show'
     end
 
   end
