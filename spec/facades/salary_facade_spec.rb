@@ -50,4 +50,15 @@ RSpec.describe 'Salary Facade' do
     data = 71025.60310363481
     expect(SalaryFacade.number_to_currency(data)).to eq("$71,025.60")
   end
+
+  it 'turns the data into openstructs' do
+    full_salaries = SalaryFacade.get_salaries("Denver")
+    expect(full_salaries.class).to eq(OpenStruct)
+    expect(full_salaries[:destination]).to eq("Denver")
+    expect(full_salaries[:forcast].class).to eq(Hash)
+    expect(full_salaries[:forcast].count).to eq(2)
+    expect(full_salaries[:salaries].count).to eq(7)
+    expect(full_salaries[:salaries].class).to eq(Array)
+
+  end
 end
