@@ -4,6 +4,7 @@ module Api
 
       def show
         salaries = SalaryFacade.get_salaries(params[:destination])
+        render json: SalariesSerializer.new(salaries)
       end
     end
   end

@@ -19,7 +19,7 @@ RSpec.describe 'Salary Facade' do
                        :weather=>[{:id=>804, :main=>"Clouds", :description=>"overcast clouds", :icon=>"04d"}]}
     expect(SalaryFacade.objectify_current_forecast(current_params).class).to eq(Hash)
     expect(SalaryFacade.objectify_current_forecast(current_params)[:temperature]).to eq(62.85)
-    expect(SalaryFacade.objectify_current_forecast(current_params)[:conditions]).to eq("overcast clouds")
+    expect(SalaryFacade.objectify_current_forecast(current_params)[:summary]).to eq("overcast clouds")
   end
 
   it 'returns the specific data we want' do
@@ -42,7 +42,12 @@ RSpec.describe 'Salary Facade' do
    expect(SalaryFacade.objectify_salaries(test_data).class).to eq(Array)
    expect(SalaryFacade.objectify_salaries(test_data)[0].keys).to match_array(%i[title min max])
    expect(SalaryFacade.objectify_salaries(test_data)[0][:title]).to eq("Data Analyst")
-   expect(SalaryFacade.objectify_salaries(test_data)[0][:min]).to eq("$46,898.19")
-   expect(SalaryFacade.objectify_salaries(test_data)[0][:max]).to eq("$67,929.19",)
+   expect(SalaryFacade.objectify_salaries(test_data)[0][:min]).to eq("$46,898.18")
+   expect(SalaryFacade.objectify_salaries(test_data)[0][:max]).to eq("$67,929.18",)
+  end
+
+  it 'converts floats to currency' do
+    data = 71025.60310363481
+    expect(SalaryFacade.number_to_currency(data)).to eq("$71,025.60")
   end
 end
