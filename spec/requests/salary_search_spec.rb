@@ -16,6 +16,14 @@ RSpec.describe 'Salaries Request' do
       expect(data[:data][:attributes][:destination]).to eq("chicago")
       expect(data[:data][:attributes][:forecast]).to be_a(Hash)
       expect(data[:data][:attributes][:forecast].keys).to match_array(%i[summary temperature])
+      expect(data[:data][:attributes][:salries]).to be_an(Array)
+      data[:data][:attributes][:salaries].each do |title|
+         expect(title.keys).to match_array(%i[title min max])
+         expect(title[:title]).to be_a(String)
+         expect(title[:min]).to be_a(String)
+         expect(title[:max]).to be_a(String)
+       end
+
 
     end
   end
