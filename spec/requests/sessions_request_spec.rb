@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Sessions Request' do
   describe 'happy path' do
     it "can log in a new user" do
+      VCR.use_cassette('login_user_happy') do
       user1 = User.create(email: "whatever@example.com", password: "password", password_confirmation: "password", api_key: SecureRandom.base58(24))
       @user = {
         "email": "whatever@example.com",
@@ -24,24 +25,42 @@ RSpec.describe 'Sessions Request' do
       expect(user[:data][:attributes][:email]).to be_a(String)
       expect(user[:data][:attributes][:email]).to eq(@user[:email])
       expect(user[:data][:attributes][:api_key]).to be_a(String)
+      end
     end
 
   end
 
   describe 'sad path' do
-    it 'returns errors if no users have been created' do
-      @user = {
-        "email": "whatever@example.com",
-        "password": "password"
-      }
-      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
-      post "/api/v1/sessions", headers: headers, params: @user.to_json
-      expect(response.status).to eq(400)
-      bad_user = JSON.parse(response.body, symbolize_names: true)
-      expect(bad_user).to be_a(Hash)
-      expect(bad_user[:error]).to be_a(String)
-      expect(bad_user[:error]).to eq("Your credentials are bad!! Fix it!")
+    VCR.use_cassette('login_user_sad') do
+      it 'returns errors if no users have been created' do
+        @user = {
+          "email": "whatever@example.com",
+          "password": "password"
+        }
+        headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+        post "/api/v1/sessions", headers: headers, params: @user.to_json
+        expect(response.status).to eq(400)
+        bad_user = JSON.parse(response.body, symbolize_names: true)
+        expect(bad_user).to be_a(Hash)
+        expect(bad_user[:error]).to be_a(String)
+        expect(bad_user[:error]).to eq("Your credentials are bad!! Fix it!")
+      end
     end
 
+    it 'errors out with no email' do
+      VCR.use_cassette('login_user_sad_email') do
+        @user = {
+          "password": "password",
+           "email": ""
+        }
+        headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+        post "/api/v1/sessions", headers: headers, params: @user.to_json
+        expect(response.status).to eq(400)
+        bad_user = JSON.parse(response.body, symbolize_names: true)
+        expect(bad_user).to be_a(Hash)
+        expect(bad_user[:error]).to be_a(String)
+        expect(bad_user[:error]).to eq("Your credentials are bad!! Fix it!")
+      end
+    end
   end
 end

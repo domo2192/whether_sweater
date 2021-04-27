@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.pexels.com/v1/search?per_page=1&query=Atlanta,%20Ge
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - 563492ad6f917000010000015655a8e3d1664f73bb73a5353bbbd3b5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 27 Apr 2021 23:10:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '464'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cf_bm=118b7ab32613724075703527c47eeefb191e6c36-1619565010-1800-AWci6hUm2LAAeitHngxucm0E+xG8qynAOwjJR6rGVfpT4sFH2KF3IgKkDDYEOXk+Whgxnx9wLyRcPCflcjSY+ag=;
+        path=/; expires=Tue, 27-Apr-21 23:40:10 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cf_bm=435907bdefd7b6cbac4e0ed2ef56206c4594a328-1619556875-1800-ASrlovKNYI51anGdhPqvHATUAwpI5a3gRoPH9wYl5O3wuQ+niRw2/obN/KZdyLY3YDpkhBmkQLSeCNFqgqYSFtU=;
+        path=/; expires=Tue, 27-Apr-21 21:24:35 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfduid=dc2d4eae7de8050baf4963226663ce9781619565010; expires=Thu, 27-May-21
+        23:10:10 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=dc7ef2ffbf125ec592935a23a0beb1f8c1619556875; expires=Thu, 27-May-21
+        20:54:35 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '09b731f6c30000f77cbf85a000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Vary:
+      - Origin
+      X-Frame-Options:
+      - ALLOWALL
+      X-Ratelimit-Limit:
+      - '20000'
+      X-Ratelimit-Remaining:
+      - '19962'
+      X-Ratelimit-Reset:
+      - '1621827429'
+      X-Request-Id:
+      - 4076b124-bc13-4560-b8e4-4f6bbe37c7af
+      X-Runtime:
+      - '0.170115'
+      X-Server:
+      - master
+      X-Tyk-Cached-Response:
+      - '1'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 646bb9046c23f77c-DEN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"per_page":1,"photos":[{"id":2342585,"width":6720,"height":4480,"url":"https://www.pexels.com/photo/two-people-wearing-black-shirts-standing-near-wall-2342585/","photographer":"Katie
+        Brittle","photographer_url":"https://www.pexels.com/@katie-brittle-1232260","photographer_id":1232260,"avg_color":"#5C656A","src":{"original":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg","large2x":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=650\u0026w=940","large":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940","medium":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=350","small":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=130","portrait":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=1200\u0026w=800","landscape":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=627\u0026w=1200","tiny":"https://images.pexels.com/photos/2342585/pexels-photo-2342585.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=1\u0026fit=crop\u0026h=200\u0026w=280"},"liked":false}],"total_results":272,"next_page":"https://api.pexels.com/v1/search/?page=2\u0026per_page=1\u0026query=Atlanta%2C+Ge"}'
+  recorded_at: Tue, 27 Apr 2021 23:10:10 GMT
+recorded_with: VCR 6.0.0

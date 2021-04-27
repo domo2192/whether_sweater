@@ -28,6 +28,32 @@ RSpec.describe 'Find background image'do
       VCR.use_cassette('bad_location') do
         get '/api/v1/backgrounds'
         expect(response.status).to eq(400)
+        data = JSON.parse(response.body, symbolize_names: true)
+        expect(data).to be_a(Hash)
+        expect(data[:message]).to eq("Your parameters are Invalid")
+      end
+    end
+
+    it 'returns an for blank location' do
+      VCR.use_cassette('bad_location_pictures') do
+        get '/api/v1/backgrounds?location='
+        expect(response.status).to eq(400)
+        data = JSON.parse(response.body, symbolize_names: true)
+        expect(data).to be_a(Hash)
+        expect(data[:message]).to eq("Your parameters are Invalid")
+      end
+    end
+
+    it 'catches garbage' do
+      VCR.use_cassette('bad_location_garbage') do
+        get '/api/v1/backgrounds?location=jdfkj3ioj4io3jr'
+        expect(response.status).to eq(200)
+        data = JSON.parse(response.body, symbolize_names: true)
+        expect(data).to be_a(Hash)
+        expect(data[:data]).to be_a(Hash)
+        expect(data[:data][:attributes]).to be_a(Hash)
+        expect(data[:data][:attributes][:image_url]).to eq("No images match that location")
+        expect(data[:data][:attributes][:credit]).to eq("Nobody took no pictures of that!!!")
       end
     end
   end

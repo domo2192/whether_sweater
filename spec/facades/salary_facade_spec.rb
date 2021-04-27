@@ -52,28 +52,32 @@ RSpec.describe 'Salary Facade' do
   end
 
   it 'turns the data into openstructs' do
-    full_salaries = SalaryFacade.get_salaries("Denver")
-    expect(full_salaries.class).to eq(OpenStruct)
-    expect(full_salaries[:destination]).to eq("Denver")
-    expect(full_salaries[:forecast].class).to eq(Hash)
-    expect(full_salaries[:forecast].count).to eq(2)
-    expect(full_salaries[:salaries].count).to eq(7)
-    expect(full_salaries[:salaries].class).to eq(Array)
+    VCR.use_cassette('grab_salaries') do
+      full_salaries = SalaryFacade.get_salaries("Denver")
+      expect(full_salaries.class).to eq(OpenStruct)
+      expect(full_salaries[:destination]).to eq("Denver")
+      expect(full_salaries[:forecast].class).to eq(Hash)
+      expect(full_salaries[:forecast].count).to eq(2)
+      expect(full_salaries[:salaries].count).to eq(7)
+      expect(full_salaries[:salaries].class).to eq(Array)
+    end 
 
   end
 
   it "returns the correct data" do
-    destination = "Denver"
-    get_coordinates = MapService.get_coordinates(destination)
-    coordinates = get_coordinates[:results][0][:locations][0][:latLng]
-    full_forecast = ForecastService.get_forecast(coordinates[:lat], coordinates[:lng])
-    full_salaries = SalaryService.get_cities("Denver")
-    test = SalaryFacade.objectify_data(full_forecast, full_salaries, destination)
-    expect(test.class).to eq(OpenStruct)
-    expect(test[:destination]).to eq("Denver")
-    expect(test[:forecast].class).to eq(Hash)
-    expect(test[:forecast].count).to eq(2)
-    expect(test[:salaries].count).to eq(7)
-    expect(test[:salaries].class).to eq(Array)
+    VCR.use_cassette('grab_all_the_things') do
+      destination = "Denver"
+      get_coordinates = MapService.get_coordinates(destination)
+      coordinates = get_coordinates[:results][0][:locations][0][:latLng]
+      full_forecast = ForecastService.get_forecast(coordinates[:lat], coordinates[:lng])
+      full_salaries = SalaryService.get_cities("Denver")
+      test = SalaryFacade.objectify_data(full_forecast, full_salaries, destination)
+      expect(test.class).to eq(OpenStruct)
+      expect(test[:destination]).to eq("Denver")
+      expect(test[:forecast].class).to eq(Hash)
+      expect(test[:forecast].count).to eq(2)
+      expect(test[:salaries].count).to eq(7)
+      expect(test[:salaries].class).to eq(Array)
+    end
   end
 end

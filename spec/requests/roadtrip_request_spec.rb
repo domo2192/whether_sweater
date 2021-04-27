@@ -23,7 +23,7 @@ RSpec.describe 'Roadtrip Request' do
         expect(user[:data][:attributes].keys).to match_array([:start_city, :end_city, :travel_time, :weather_at_eta ])
         expect(user[:data][:attributes][:start_city]).to eq("Denver,CO")
         expect(user[:data][:attributes][:end_city]).to eq("Pueblo,CO")
-        expect(user[:data][:attributes][:travel_time]).to eq("1 hours, and 51 minutes")
+        expect(user[:data][:attributes][:travel_time]).to be_a(String)
         expect(user[:data][:attributes][:weather_at_eta]).to be_a(Hash)
         expect(user[:data][:attributes][:weather_at_eta][:temperature]).to be_a(Numeric)
         expect(user[:data][:attributes][:weather_at_eta][:conditions]).to be_a(String)
@@ -108,7 +108,7 @@ RSpec.describe 'Roadtrip Request' do
         expect(bad_location[:data].class).to be(Hash)
         expect(bad_location[:data][:attributes].keys).to match_array([:start_city, :end_city, :travel_time, :weather_at_eta ])
         expect(bad_location[:data][:attributes][:travel_time]).to eq("Unable to calculate route.")
-      end 
+      end
     end
   end
 end
