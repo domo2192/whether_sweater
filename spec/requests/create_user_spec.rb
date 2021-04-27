@@ -89,4 +89,19 @@ RSpec.describe 'Users Request' do
     expect(bad_user[:error]).to be_a(String)
     expect(bad_user[:error]).to eq("Validation failed: Email can't be blank, Email is invalid")
   end
+
+  it 'needs to be in email format' do
+    @user = {
+      "email": "whatever",
+      "password": "password",
+      "password_confirmation": "password"
+    }
+
+  headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+  post "/api/v1/users", headers: headers, params: @user.to_json
+  bad_user = JSON.parse(response.body, symbolize_names: true)
+  expect(bad_user).to be_a(Hash)
+  expect(bad_user[:error]).to be_a(String)
+  expect(bad_user[:error]).to eq("Validation failed: Email is invalid")
+  end
 end
