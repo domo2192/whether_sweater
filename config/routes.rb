@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post 'users', to: 'user#create'
       post 'sessions', to: 'session#create'
       get 'salaries', to: 'salary#show'
+      post 'road_trip', to: 'roadtrip#show'
     end
 
   end
