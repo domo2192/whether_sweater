@@ -5,10 +5,10 @@ class RoadtripFacade
     if !directions[:info][:messages].empty?
       check_route(directions, origin, destination)
     else
-    get_coordinates = MapService.get_coordinates(destination)
-    coordinates = get_coordinates[:results][0][:locations][0][:latLng]
-    forecast = ForecastService.hourly_forecast(coordinates[:lat], coordinates[:lng])
-    objectify_data(origin, destination, directions, forecast )
+      get_coordinates = MapService.get_coordinates(destination)
+      coordinates = get_coordinates[:results][0][:locations][0][:latLng]
+      forecast = ForecastService.hourly_forecast(coordinates[:lat], coordinates[:lng])
+      objectify_data(origin, destination, directions, forecast )
     end
   end
 
@@ -39,6 +39,6 @@ class RoadtripFacade
   OpenStruct.new ({  start_city: origin,
                     end_city: destination,
                     travel_time: directions[:info][:messages].pop ,
-                    weather_at_eta: "You shouldn't care."})
+                    weather_at_eta: {temperature: -1000, conditions: "You shouldn't care."}})
   end
 end

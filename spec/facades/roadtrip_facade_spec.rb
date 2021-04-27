@@ -21,8 +21,8 @@ RSpec.describe 'Roadtrip Facade' do
         forecast = ForecastService.hourly_forecast(coordinates[:lat], coordinates[:lng])
         test = RoadtripFacade.hash_weather_data(forecast, epoch_time)
         expect(test.keys).to match_array(%i[temperature conditions])
-        expect(test[:temperature]).to eq(54.79)
-        expect(test[:conditions]).to eq("clear sky")
+        expect(test[:temperature]).to be_a(Numeric)
+        expect(test[:conditions]).to be_a(String)
       end
     end
 
@@ -73,7 +73,9 @@ RSpec.describe 'Roadtrip Facade' do
         expect(test.start_city).to eq('Miami, Fl')
         expect(test.end_city).to eq('Hamburg, Ge')
         expect(test.travel_time).to eq("We are unable to route with the given locations.")
-        expect(test.weather_at_eta).to eq("You shouldn't care.")
+        expect(test.weather_at_eta).to be_a(Hash)
+        expect(test.weather_at_eta[:conditions]).to eq("You shouldn't care.")
+        expect(test.weather_at_eta[:temperature]).to eq(-1000)
       end
     end
   end
