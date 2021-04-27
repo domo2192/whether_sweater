@@ -57,5 +57,34 @@ RSpec.describe 'Roadtrip Request' do
      expect(bad_user[:error]).to be_a(String)
      expect(bad_user[:error]).to eq("Unauthorized")
     end
+
+    it 'breaks when the origin or destination is not included' do
+      user1 = User.create(email: "whatever@example.com", password: "password", password_confirmation: "password", api_key: SecureRandom.base58(24))
+      params = {"origin": "Denver,CO",
+                 "api_key": "#{user1.api_key}"}
+      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+      post '/api/v1/road_trip', headers: headers, params: params.to_json
+      expect(response.status).to eq(400)
+      bad_locations = JSON.parse(response.body, symbolize_names: true)
+      expect(bad_locations).to be_a(Hash)
+      expect(bad_locations[:error]).to be_a(String)
+      expect(bad_locations[:error]).to eq("You must pass an origin and destination.")
+    end
+
+    it 'breaks when the path is empty' do
+      user1 = User.create(email: "whatever@example.com", password: "password", password_confirmation: "password", api_key: SecureRandom.base58(24))
+      params = {"origin": "Denver,CO",
+                "destination": "",
+                 "api_key": "#{user1.api_key}"}
+      headers = {"CONTENT_TYPE" => "application/json", "ACCEPT" => "application/json"}
+      post '/api/v1/road_trip', headers: headers, params: params.to_json
+      expect(response.status).to eq(200)
+      bad_location = JSON.parse(response.body, symbolize_names: true)
+      expect(bad_location.class).to eq(Hash)
+      expect(bad_location[:data].class).to be(Hash)
+      expect(bad_location[:data][:attributes].keys).to match_array([:start_city, :end_city, :travel_time, :weather_at_eta ])
+      expect(bad_location[:data][:attributes][:travel_time]).to eq("At least two locations must be provided.")
+
+    end
   end
 end
