@@ -11,6 +11,14 @@ This project was tested with:
 * RSpec version 3.10
 * [Postman](https://www.postman.com/) Explore and test the API endpoints using Postman, and use Postman’s CLI to execute collections directly from the command-line.
 
+### About 
+
+* This project is to demonstrate api consumption and creation when given the frontend wireframes.
+
+### APIS Consumed
+* Mapquest api https://developer.mapquest.com/ 
+* Photo api https://www.pexels.com/api/ 
+* For Weather Data https://openweathermap.org/api
 
 #### Prerequisites
 
@@ -54,7 +62,7 @@ This project was tested with:
 | ---------- | ------ | ------ |------| --------:|
 | GET | /api/v1/forecast?location=denver,co |valid city passed in as location| Get the weather for a location ||
 | GET | /api/v1/backgrounds?location=denver,co|valid location for area| Get a photo for a specific area||
-| POST | /api/v1/users  | Valid email, password, and confirmation| Create a user account ||Must pass required Json in body|
+| POST | /api/v1/users  | Valid email, password, and confirmation| Create a user account |Must pass required Json in body|
 | Post| /api/v1/sessions  | valid email and password |Create a session get an api_key|Must pass required as Json in body|
 | Post| /api/v1/road_trip |Must pass valid origin/desitnation/api_key| Creates a road trip |Must pass required as Json in body|
 
