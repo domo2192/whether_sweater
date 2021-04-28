@@ -4,14 +4,23 @@ RSpec.describe 'Roadtrip Facade' do
   describe 'unit tests' do
     it "can clean a epoch time and turn it into hours and minutes" do
       epoch_time = 8500
-      new_time = RoadtripFacade.clean_time(epoch_time)
+      formatted_time = "00:35:23"
+      new_time = RoadtripFacade.clean_time(epoch_time, formatted_time)
       expect(new_time).to eq('2 hours, and 21 minutes')
     end
 
     it 'cleans larger amounts of data' do
       epoch_time = 100000
-      new_time = RoadtripFacade.clean_time(epoch_time)
+      formatted_time = "00:35:23"
+      new_time = RoadtripFacade.clean_time(epoch_time, formatted_time)
       expect(new_time).to eq('27 hours, and 46 minutes')
+    end
+
+    it 'hits the else if epoch is too big' do
+      epoch_time = 1000000
+      formatted_time = "00:35:23"
+      new_time = RoadtripFacade.clean_time(epoch_time, formatted_time)
+      expect(new_time).to eq('00 hours, and 35 minutes')
     end
 
     it 'grabs the correct dt when you turn weather data into a hash' do

@@ -16,15 +16,19 @@ class RoadtripFacade
   def self.objectify_data(origin, destination, directions, forecast)
     OpenStruct.new({  start_city: origin,
                       end_city: destination,
-                      travel_time: clean_time(directions[:route][:realTime]),
+                      travel_time: clean_time(directions[:route][:realTime], directions[:route][:formattedTime]),
                       weather_at_eta: hash_weather_data(forecast, directions[:route][:realTime])
                    })
   end
 
-  def self.clean_time(epoch_time)
-    hours = epoch_time/ 3600
-    minutes = (epoch_time/60 - hours*60)
-    return ("#{hours}" " " "hours" "," " and " "#{minutes}"  " "  "minutes")
+  def self.clean_time(epoch_time, formatted_time)
+   if epoch_time <= 100000
+     hours = epoch_time/ 3600
+     minutes = (epoch_time/60 - hours*60)
+     return ("#{hours}" " " "hours" "," " and " "#{minutes}"  " "  "minutes")
+    else
+      return ("#{formatted_time.split(":").first}" " " "hours" "," " and " "#{formatted_time.split(":").second}"  " "  "minutes")
+   end
   end
 
   def self.hash_weather_data(forecast, epoch_time)
