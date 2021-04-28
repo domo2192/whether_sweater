@@ -5,24 +5,54 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+#### Built With
+* [Ruby on Rails](https://rubyonrails.org)
+* [HTML](https://html.com)
 
-* System dependencies
+This project was tested with:
+* RSpec version 3.10
+* [Postman](https://www.postman.com/) Explore and test the API endpoints using Postman, and use Postman’s CLI to execute collections directly from the command-line.
 
-* Configuration
 
-* Database creation
+#### Prerequisites
 
-* Database initialization
+* __Ruby__
 
-* How to run the test suite
+  - The project is built with rubyonrails using __ruby version 2.5.3p105__, you must install ruby on your local machine first. Please visit the [ruby](https://www.ruby-lang.org/en/documentation/installation/) home page to get set up. _Please ensure you install the version of ruby noted above._
 
-* Services (job queues, cache servers, search engines, etc.)
+* __Rails__
+  ```sh
+  gem install rails --version 5.2.5
+  ```
 
-* Deployment instructions
+* __Postgres database__
+  - Visit the [postgresapp](https://postgresapp.com/downloads.html) homepage and follow their instructions to download the latest version of Postgres app.
 
-* ...
+#### Installing
 
+1. Clone the repo
+  ```
+  $ git clone https://github.com/Yardsourcing/yardsourcing-frontend
+  ```
+
+2. Bundle Install
+  ```
+  $ bundle install
+  ```
+
+3. Create, migrate and seed rails database
+  ```
+  $ rails db:{create,migrate,seed}
+  ```
+
+4. Set up Environment Variables:
+  - run `bundle exec figaro install`
+  - add the below variable to the `config/application.yml` if you wish to use the existing email microservice. Otherwise you replace it the value with service if desired.
+  ```
+   
+  ```
+
+  If you do not wish to use the sample data provided to seed your database, replace the commands in `db/seeds.rb`.
 
 ### Endpoints
 | HTTP verbs | Paths  |Required| Used for |Tips|
