@@ -57,3 +57,13 @@ This project was tested with:
 | POST | /api/v1/users  | Valid email, password, and confirmation| Create a user account ||Must pass required Json in body|
 | Post| /api/v1/sessions  | valid email and password |Create a session get an api_key|Must pass required as Json in body|
 | Post| /api/v1/road_trip |Must pass valid origin/desitnation/api_key| Creates a road trip |Must pass required as Json in body|
+
+### How to Contribute
+
+In the spirit of collaboration, things done together are better than done on our own. If you have any amazing ideas or contributions on how we can improve this API they are **greatly appreciated**. To contribute:
+
+  1. Fork the Project
+  2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+  3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+  4. Push to the Branch (`git push origin feature/AmazingFeature`)
+  5. Open a Pull Request
