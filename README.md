@@ -1,9 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+### Created by:
+- [Dominic Padula](https://github.com/domo2192) | [LinkedIn](https://www.linkedin.com/in/dominic-padula-5bb5b2179/)
 
 #### Built With
 * [Ruby on Rails](https://rubyonrails.org)
@@ -48,9 +46,6 @@ This project was tested with:
 4. Set up Environment Variables:
   - run `bundle exec figaro install`
   - add the below variable to the `config/application.yml` if you wish to use the existing email microservice. Otherwise you replace it the value with service if desired.
-  ```
-   
-  ```
 
   If you do not wish to use the sample data provided to seed your database, replace the commands in `db/seeds.rb`.
 
