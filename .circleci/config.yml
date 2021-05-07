@@ -6,12 +6,33 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.5.3-stretch-node
+        environment:
+          PGHOST: 127.0.0.1
+          # PGHOST: localhost
+          PGUSER: sweater_weather
+          RAILS_ENV: test
+      - image: circleci/postgres:13
+        environment:
+          POSTGRES_USER: sweater_weather
+          POSTGRES_DB: sweater_weather_test
+          POSTGRES_PASSWORD: POSTGRES_HOST_AUTH_METHOD=trust
+      - image: circleci/redis:latest
     executor: ruby/default
+    environment:
+      key: ENV['MAP_API_KEY']
+      appid: ENV['FORECAST_API_KEY']
+      api_key: ENV['PIXEL_API_KEY']
     steps:
       - checkout
+      # Setup the environment
+      - run: gem install bundler:2.2.15
+      - run: bundle config set --local path 'turing/mod3/projects/sweater_weather'
+      - run: bundle install --path "turing/mod3/projects/sweater_weather"
+      # DB Wait
       - run:
-          name: whether_sweater
-          command: bundle -v
-      - ruby/bundle-install
-      - store_test)results:
-        path: spec
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      # Run the test suite
+      - run: bundle exec rails db:create
+      - run: bundle exec rails db:schema:load
+      - run: bundle exec rspec
