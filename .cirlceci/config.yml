@@ -5,11 +5,13 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.5.3-stretch-node
     executor: ruby/default
     steps:
       - checkout
       - run:
-          name: Which bundler?
+          name: whether_sweater
           command: bundle -v
       - ruby/bundle-install
+      - store_test)results:
+        path: spec
