@@ -21,7 +21,7 @@ RSpec.describe "Weather Search" do
         expect(current[:feels_like]).to be_a Float
         expect(current[:pressure]).to be_a Integer
         expect(current[:humidity]).to be_a Integer
-        expect(current[:uvi]).to be_a Float
+        expect(current[:uvi]).to be_a Numeric
         expect(current[:visibility]).to be_a Numeric
         expect(current[:weather]).to be_an Array
         expect(current[:weather][0]).to be_a Hash
@@ -35,7 +35,7 @@ RSpec.describe "Weather Search" do
         expect(daily).to be_an Array
         day_1 = forecast[:daily].first
         expect(day_1).to be_a Hash
-        expect(day_1.keys).to match_array(%i[clouds dew_point dt wind_deg wind_gust wind_speed sunrise sunset temp feels_like pressure humidity uvi weather moon_phase moonrise moonset pop rain])
+        expect(day_1.keys).to match_array(%i[clouds dew_point dt wind_deg wind_gust wind_speed sunrise sunset temp feels_like pressure humidity uvi weather moon_phase moonrise moonset pop])
         expect(day_1[:dt]).to be_a Integer
         expect(day_1[:sunrise]).to be_a Integer
         expect(day_1[:sunset]).to be_a Integer
@@ -61,7 +61,7 @@ RSpec.describe "Weather Search" do
         hour_1 = forecast[:hourly][0]
 
         expect(hour_1).to be_a Hash
-        expect(hour_1.keys).to match_array(%i[clouds dew_point dt wind_deg wind_gust wind_speed temp feels_like pressure humidity uvi weather pop visibility rain])
+        expect(hour_1.keys).to match_array(%i[clouds dew_point dt wind_deg wind_gust wind_speed temp feels_like pressure humidity uvi weather pop visibility])
         expect(hour_1[:dt]).to be_a Integer
         expect(hour_1[:temp]).to be_a Float
         expect(hour_1[:feels_like]).to be_a Float

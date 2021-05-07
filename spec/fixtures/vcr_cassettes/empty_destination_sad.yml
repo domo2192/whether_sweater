@@ -21,7 +21,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 27 Apr 2021 23:10:20 GMT
+      - Fri, 07 May 2021 01:48:03 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       Set-Cookie:
-      - JSESSIONID=B3B292CA61DF9160C9E2FFDBF6B66BB5; Path=/directions; HttpOnly; Secure
+      - JSESSIONID=6B08B2E6997680602A6C67C77AB2A5D2; Path=/directions; HttpOnly; Secure
       Expires:
       - Mon, 20 Dec 1998 01:00:00 GMT
       Last-Modified:
-      - Tue, 27 Apr 2021 23:10:20 GMT
+      - Fri, 07 May 2021 01:48:03 GMT
       Cache-Control:
       - no-cache, must-revalidate
       Pragma:
@@ -52,5 +52,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         eyJyb3V0ZSI6eyJyb3V0ZUVycm9yIjp7ImVycm9yQ29kZSI6MjExLCJtZXNzYWdlIjoiIn19LCJpbmZvIjp7InN0YXR1c2NvZGUiOjYxMSwiY29weXJpZ2h0Ijp7ImltYWdlQWx0VGV4dCI6IsKpIDIwMjEgTWFwUXVlc3QsIEluYy4iLCJpbWFnZVVybCI6Imh0dHA6Ly9hcGkubXFjZG4uY29tL3Jlcy9tcWxvZ28uZ2lmIiwidGV4dCI6IsKpIDIwMjEgTWFwUXVlc3QsIEluYy4ifSwibWVzc2FnZXMiOlsiQXQgbGVhc3QgdHdvIGxvY2F0aW9ucyBtdXN0IGJlIHByb3ZpZGVkLiJdfX0=
-  recorded_at: Tue, 27 Apr 2021 23:10:20 GMT
+  recorded_at: Fri, 07 May 2021 01:48:03 GMT
 recorded_with: VCR 6.0.0

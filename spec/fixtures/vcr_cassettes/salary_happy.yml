@@ -31,21 +31,21 @@ http_interactions:
       Server:
       - nginx
       X-Apiproxy-Cache-Status:
-      - MISS
+      - HIT
       Date:
-      - Tue, 27 Apr 2021 23:07:40 GMT
+      - Fri, 07 May 2021 01:47:58 GMT
       Via:
-      - 1.1 google, 1.1 91f1c114eac2b00f07286bc49dddd7e5.cloudfront.net (CloudFront)
+      - 1.1 google, 1.1 0958bcd2929a58bce81e81d995bf358a.cloudfront.net (CloudFront)
       Vary:
       - Origin,Accept-Encoding
       X-Cache:
       - Hit from cloudfront
       X-Amz-Cf-Pop:
-      - DEN50-C2
+      - ORD53-C1
       X-Amz-Cf-Id:
-      - HHwtUqKlsYKWyhZEQiONHTpKfiR7kglpXwxO33zVe7ZqIBonwdfrCw==
+      - hGh-N90NrQC4OCT44dbar5n78A4VWsCxa6HVEzjEjRnJRjmjxdGuYw==
       Age:
-      - '170'
+      - '16'
     body:
       encoding: ASCII-8BIT
       string: '{"_links":{"curies":[{"href":"https://developers.teleport.org/api/resources/Location/#!/relations/{rel}/","name":"location","templated":true},{"href":"https://developers.teleport.org/api/resources/City/#!/relations/{rel}/","name":"city","templated":true},{"href":"https://developers.teleport.org/api/resources/UrbanArea/#!/relations/{rel}/","name":"ua","templated":true},{"href":"https://developers.teleport.org/api/resources/Country/#!/relations/{rel}/","name":"country","templated":true},{"href":"https://developers.teleport.org/api/resources/Admin1Division/#!/relations/{rel}/","name":"a1","templated":true},{"href":"https://developers.teleport.org/api/resources/Timezone/#!/relations/{rel}/","name":"tz","templated":true}],"self":{"href":"https://api.teleport.org/api/urban_areas/slug:denver/salaries/"}},"salaries":[{"job":{"id":"ACCOUNT-MANAGER","title":"Account
@@ -87,5 +87,5 @@ http_interactions:
         Designer"},"salary_percentiles":{"percentile_25":64647.76637002433,"percentile_50":79267.66205244981,"percentile_75":97193.80266438473}},{"job":{"id":"WAITER","title":"Waiter"},"salary_percentiles":{"percentile_25":17669.07598526329,"percentile_50":27045.245825939357,"percentile_75":41396.91981604157}},{"job":{"id":"WEB-DESIGNER","title":"Web
         Designer"},"salary_percentiles":{"percentile_25":38857.385824370846,"percentile_50":47546.68587216852,"percentile_75":58179.089752579195}},{"job":{"id":"WEB-DEVELOPER","title":"Web
         Developer"},"salary_percentiles":{"percentile_25":51218.21672136418,"percentile_50":63464.58172585839,"percentile_75":78639.07397537524}}]}'
-  recorded_at: Tue, 27 Apr 2021 23:10:30 GMT
+  recorded_at: Fri, 07 May 2021 01:48:14 GMT
 recorded_with: VCR 6.0.0

@@ -4,13 +4,13 @@ RSpec.describe 'Weather Facade' do
   describe 'unit tests' do
     it 'cleans time to the expected format' do
       seconds = 1619290108
-      date_time = "2021-04-24 12:48:28 -0600"
+      date_time = "2021-04-24 13:48:28 -0500"
       expect(WeatherFacade.clean_time(seconds)).to eq(date_time)
     end
 
     it 'cleans hours to the expected format' do
       seconds =  1619294400
-      hour_time = "14:00:00"
+      hour_time = "15:00:00"
       expect(WeatherFacade.clean_hour(seconds)).to eq(hour_time)
     end
 
@@ -35,9 +35,9 @@ RSpec.describe 'Weather Facade' do
                      :wind_gust=>3.8,
                      :weather=>[{:id=>804, :main=>"Clouds", :description=>"overcast clouds", :icon=>"04d"}],
                      :pop=>0}
-                
+
       expect(WeatherFacade.hour_object(hour_params).class).to eq(Hash)
-      expect(WeatherFacade.hour_object(hour_params)[:time]).to eq("14:00:00")
+      expect(WeatherFacade.hour_object(hour_params)[:time]).to eq("15:00:00")
       expect(WeatherFacade.hour_object(hour_params)[:temperature]).to eq(61.7)
       expect(WeatherFacade.hour_object(hour_params)[:conditions]).to eq("overcast clouds")
       expect(WeatherFacade.hour_object(hour_params)[:icon]).to eq("04d")
@@ -64,8 +64,8 @@ RSpec.describe 'Weather Facade' do
                        :uvi=>6.7}
       expect(WeatherFacade.daily_object(daily_params).class).to eq(Hash)
       expect(WeatherFacade.daily_object(daily_params)[:date]).to eq("2021-04-24")
-      expect(WeatherFacade.daily_object(daily_params)[:sunrise]).to eq("2021-04-24 06:08:57 -0600")
-      expect(WeatherFacade.daily_object(daily_params)[:sunset]).to eq("2021-04-24 19:46:43 -0600")
+      expect(WeatherFacade.daily_object(daily_params)[:sunrise]).to eq("2021-04-24 07:08:57 -0500")
+      expect(WeatherFacade.daily_object(daily_params)[:sunset]).to eq("2021-04-24 20:46:43 -0500")
       expect(WeatherFacade.daily_object(daily_params)[:max_temp]).to eq(64)
       expect(WeatherFacade.daily_object(daily_params)[:min_temp]).to eq(38.21)
       expect(WeatherFacade.daily_object(daily_params)[:conditions]).to eq("broken clouds")
@@ -90,9 +90,9 @@ RSpec.describe 'Weather Facade' do
                          :wind_gust=>7,
                          :weather=>[{:id=>804, :main=>"Clouds", :description=>"overcast clouds", :icon=>"04d"}]}
       expect(WeatherFacade.objectify_current_forecast(current_params).class).to eq(Hash)
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:datetime]).to eq("2021-04-24 14:52:47 -0600")
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunrise]).to eq("2021-04-24 06:08:57 -0600")
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunset]).to eq("2021-04-24 19:46:43 -0600")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:datetime]).to eq("2021-04-24 15:52:47 -0500")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunrise]).to eq("2021-04-24 07:08:57 -0500")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunset]).to eq("2021-04-24 20:46:43 -0500")
       expect(WeatherFacade.objectify_current_forecast(current_params)[:temperature]).to eq(62.85)
       expect(WeatherFacade.objectify_current_forecast(current_params)[:feels_like]).to eq(60.48)
       expect(WeatherFacade.objectify_current_forecast(current_params)[:humidity]).to eq(35)
