@@ -96,7 +96,7 @@ RSpec.describe "Weather Search" do
         lng =  'thirtynine'
         forecast = ForecastService.get_forecast(lat, lng)
         expect(forecast).to be_a(Hash)
-        expect(forecast[:message]).to eq("wrong latitude")
+        expect(forecast[:message]).to eq("wrong longitude")
       end
     end
   end
