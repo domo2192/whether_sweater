@@ -1,0 +1,81 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.pexels.com/v1/search?per_page=1&query=denver,co
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v1.4.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - 563492ad6f917000010000015655a8e3d1664f73bb73a5353bbbd3b5
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 27 Apr 2021 23:10:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '435'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cf_bm=83946808391a66692e9e7325cbbf380cb1d6b3f4-1619563330-1800-AZdxQS9X0pTHNYS6ad9CdXce2LIzxD7dvTepqZPPAwNYgDU+YZ0aJtA6T6qzk/VGFwxq567SYaq2Mvcs4J5/B70=;
+        path=/; expires=Tue, 27-Apr-21 23:12:10 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cf_bm=f760f6ecd2b53474145e0b48dcce3bb37532ead5-1619565017-1800-AWR6h8GAkjmp/Y5a54xDcMJ5XXXdjqLyEysJPrbWgMNh5Gwjxw67rE37A0cB0b7Sweh/KUPwTt3E3kzTECHw5rY=;
+        path=/; expires=Tue, 27-Apr-21 23:40:17 GMT; domain=.pexels.com; HttpOnly;
+        Secure; SameSite=None
+      - __cfduid=d28647a01f01f2410e2b021c65167227f1619565017; expires=Thu, 27-May-21
+        23:10:17 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      - __cfduid=df8d6c05fa33a046138089dafa0f780401619563330; expires=Thu, 27-May-21
+        22:42:10 GMT; path=/; domain=.pexels.com; HttpOnly; SameSite=Lax; Secure
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '09b73211960000f78055bee000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Vary:
+      - Origin
+      X-Frame-Options:
+      - ALLOWALL
+      X-Ratelimit-Limit:
+      - '20000'
+      X-Ratelimit-Remaining:
+      - '19961'
+      X-Ratelimit-Reset:
+      - '1621827429'
+      X-Request-Id:
+      - f763f34b-3d4a-4517-aefd-dc3d331e46f8
+      X-Runtime:
+      - '0.076743'
+      X-Server:
+      - master
+      X-Tyk-Cached-Response:
+      - '1'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 646bb92f58c4f780-DEN
+    body:
+      encoding: ASCII-8BIT
+      string: '{"page":1,"per_page":1,"photos":[{"id":7429461,"width":5950,"height":3967,"url":"https://www.pexels.com/photo/people-in-a-meeting-7429461/","photographer":"Ron
+        Lach","photographer_url":"https://www.pexels.com/@ron-lach","photographer_id":22992178,"avg_color":"#A2A49A","src":{"original":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg","large2x":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=2\u0026h=650\u0026w=940","large":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=650\u0026w=940","medium":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=350","small":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026h=130","portrait":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=1200\u0026w=800","landscape":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026fit=crop\u0026h=627\u0026w=1200","tiny":"https://images.pexels.com/photos/7429461/pexels-photo-7429461.jpeg?auto=compress\u0026cs=tinysrgb\u0026dpr=1\u0026fit=crop\u0026h=200\u0026w=280"},"liked":false}],"total_results":1879,"next_page":"https://api.pexels.com/v1/search/?page=2\u0026per_page=1\u0026query=denver%2Cco"}'
+  recorded_at: Tue, 27 Apr 2021 23:10:17 GMT
+recorded_with: VCR 6.0.0
