@@ -67,7 +67,7 @@ RSpec.describe "Weather Search" do
         expect(hour_1[:feels_like]).to be_a Float
         expect(hour_1[:pressure]).to be_a Integer
         expect(hour_1[:humidity]).to be_a Integer
-        expect(hour_1[:uvi]).to be_a Float
+        expect(hour_1[:uvi]).to be_a Numeric 
         expect(hour_1[:visibility]).to be_a Numeric
         expect(hour_1[:weather]).to be_an Array
         expect(hour_1[:weather][0]).to be_a Hash
