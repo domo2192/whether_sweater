@@ -64,8 +64,8 @@ RSpec.describe 'Weather Facade' do
                        :uvi=>6.7}
       expect(WeatherFacade.daily_object(daily_params).class).to eq(Hash)
       expect(WeatherFacade.daily_object(daily_params)[:date]).to eq("2021-04-24")
-      expect(WeatherFacade.daily_object(daily_params)[:sunrise]).to eq("2021-04-24 07:08:57 -0000")
-      expect(WeatherFacade.daily_object(daily_params)[:sunset]).to eq("2021-04-24 20:46:43 -0000")
+      expect(WeatherFacade.daily_object(daily_params)[:sunrise]).to eq("2021-04-24 07:08:57 +0000")
+      expect(WeatherFacade.daily_object(daily_params)[:sunset]).to eq("2021-04-24 20:46:43 +0000")
       expect(WeatherFacade.daily_object(daily_params)[:max_temp]).to eq(64)
       expect(WeatherFacade.daily_object(daily_params)[:min_temp]).to eq(38.21)
       expect(WeatherFacade.daily_object(daily_params)[:conditions]).to eq("broken clouds")
@@ -90,9 +90,9 @@ RSpec.describe 'Weather Facade' do
                          :wind_gust=>7,
                          :weather=>[{:id=>804, :main=>"Clouds", :description=>"overcast clouds", :icon=>"04d"}]}
       expect(WeatherFacade.objectify_current_forecast(current_params).class).to eq(Hash)
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:datetime]).to eq("2021-04-24 15:52:47 -0000")
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunrise]).to eq("2021-04-24 07:08:57 -0000")
-      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunset]).to eq("2021-04-24 20:46:43 -0000")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:datetime]).to eq("2021-04-24 15:52:47 +0000")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunrise]).to eq("2021-04-24 07:08:57 +0000")
+      expect(WeatherFacade.objectify_current_forecast(current_params)[:sunset]).to eq("2021-04-24 20:46:43 +0000")
       expect(WeatherFacade.objectify_current_forecast(current_params)[:temperature]).to eq(62.85)
       expect(WeatherFacade.objectify_current_forecast(current_params)[:feels_like]).to eq(60.48)
       expect(WeatherFacade.objectify_current_forecast(current_params)[:humidity]).to eq(35)
